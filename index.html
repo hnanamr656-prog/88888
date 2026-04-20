@@ -125,12 +125,43 @@ footer{text-align:center;padding:40px;opacity:.5}
 </section><section class="stats">
 <div class="title">الإحصائيات</div>
 <div class="grid">
-<div class="card"><h2>+10</h2><p>سنوات خبرة</p></div>
-<div class="card"><h2>+500</h2><p>عميل</p></div>
-<div class="card"><h2>+1200</h2><p>حملة</p></div>
-<div class="card"><h2>12480</h2><p>زيارات</p></div>
+<div class="card"><h2 class="counter" data-target="10">0</h2><p>سنوات خبرة</p></div>
+<div class="card"><h2 class="counter" data-target="500">0</h2><p>عميل</p></div>
+<div class="card"><h2 class="counter" data-target="1200">0</h2><p>حملة</p></div>
+<div class="card"><h2 class="counter" data-target="12480">0</h2><p>زيارات</p></div>
 </div>
-</section><section>
+</section><script>
+const counters = document.querySelectorAll('.counter');
+
+const animateCounter = (counter) => {
+  const target = +counter.getAttribute('data-target');
+  let count = 0;
+  const speed = target / 80;
+
+  const update = () => {
+    count += speed;
+    if(count < target){
+      counter.innerText = Math.floor(count).toLocaleString();
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target.toLocaleString();
+    }
+  };
+
+  update();
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      animateCounter(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold: 0.5});
+
+counters.forEach(c => observer.observe(c));
+</script><section>
 <div class="title">آراء العملاء</div>
 <div class="testimonials">
 <div class="card">⭐⭐⭐⭐⭐<br>نتائج ممتازة وخدمة قوية<br><b>أحمد</b></div>
