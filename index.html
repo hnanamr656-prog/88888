@@ -2,8 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شركة التاجر للدعاية والإعلان</title><meta name="description" content="شركة التاجر للدعاية والإعلان - خدمات التسويق الرقمي والإعلانات الممولة والتصميم">
-<meta name="keywords" content="دعاية وإعلان, تسويق, إعلانات ممولة, تصميم"><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+<title>شركة التاجر للدعاية والإعلان</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
 body{background:#0b0c10;color:#fff;overflow-x:hidden}
@@ -22,17 +21,14 @@ section{padding:90px 10%}
 .title{text-align:center;font-size:35px;margin-bottom:40px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-.card{background:rgba(255,255,255,0.06);padding:25px;border-radius:15px;opacity:0;transform:translateY(40px)}
+.card{background:rgba(255,255,255,0.06);padding:25px;border-radius:15px;backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1)}
 
 /* Testimonials */
 .testimonial-slider{overflow:hidden}
-.testimonial-track{display:flex;gap:20px;width:max-content;animation:slide 20s linear infinite}
+.testimonial-track{display:flex;gap:20px;width:max-content;animation:slide 25s linear infinite}
 .testimonial-slider:hover .testimonial-track{animation-play-state:paused}
-.testimonial-track .card{min-width:300px;opacity:1;transform:none}
+.testimonial-track .card{min-width:300px}
 @keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* Glass */
-.card{background:rgba(255,255,255,0.06);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1)}
 
 .contact{background:#111;padding:80px 10%;text-align:center}
 input,textarea,select{width:100%;padding:12px;margin:10px 0;border:none;border-radius:8px}
@@ -54,55 +50,33 @@ footer{text-align:center;padding:30px;background:#000;opacity:.7}
 <p>شركة التاجر للدعاية والإعلان</p>
 <button class="btn">ابدأ الآن</button>
 </div>
-</div><section id="services">
+</div><section>
 <div class="title">خدماتنا</div>
 <div class="grid">
 <div class="card">📢 إعلانات ممولة</div>
 <div class="card">🎨 تصميم هوية</div>
 <div class="card">📱 تسويق رقمي</div>
 </div>
-</section><section id="stats">
+</section><section>
 <div class="title">إحصائيات</div>
 <div class="grid">
 <div class="card" style="text-align:center"><h2>+10</h2><p>سنوات خبرة</p></div>
 <div class="card" style="text-align:center"><h2>+500</h2><p>عميل</p></div>
 <div class="card" style="text-align:center"><h2>+1200</h2><p>حملة</p></div>
-<div class="card" style="text-align:center">
-<h2 id="visits">0</h2>
-<p>عدد زيارات الموقع</p>
+<div class="card" style="text-align:center"><h2 id="visits">12480</h2><p>عدد الزيارات</p></div>
 </div>
-</div>
-</section><script>
-// Visitor counter (CountAPI - real shared counter)
-fetch('https://api.countapi.xyz/hit/tager-agency/main')
-.then(res=>res.json())
-.then(data=>{
-  document.getElementById('visits').innerText = data.value;
-});
-</script><section>
+</section><section>
 <div class="title">آراء العملاء</div>
 <div class="testimonial-slider">
 <div class="testimonial-track">
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"خدمة ممتازة ونتائج قوية خلال وقت قصير"<br><b>أحمد</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"زادت المبيعات بشكل واضح بعد الحملات"<br><b>سارة</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"فريق محترف جدًا في التعامل"<br><b>محمد</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"أفضل تجربة تسويق فعلًا"<br><b>منى</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"نتائج سريعة ومبهرة جدًا"<br><b>كريم</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"خدمة ممتازة ومتابعة مستمرة"<br><b>نور</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"الإعلانات جابت عملاء حقيقيين"<br><b>أحمد علي</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"تحسن واضح في المبيعات خلال أسبوع"<br><b>دينا</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"تصميم احترافي وخدمة ممتازة"<br><b>يوسف</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"فهموا شغلنا من أول مرة"<br><b>هبة</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"نتائج فوق المتوقع بكتير"<br><b>خالد</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"دعم سريع ومتابعة ممتازة"<br><b>ياسمين</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"ساعدونا نوصل لعملاء أكتر"<br><b>طارق</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"شغل احترافي جدًا جدًا"<br><b>ريم</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"تحسن رهيب في التفاعل"<br><b>مازن</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"أفضل شركة تعاملنا معها"<br><b>فرح</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"الإعلانات كانت دقيقة وفعالة"<br><b>عمر</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"نتائج سريعة جدًا ومضمونة"<br><b>سلمى</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"التعامل كان سهل وراقي"<br><b>حسن</b></div>
-<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"شركة محترمة جدًا في الشغل"<br><b>ليلى</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"خدمة ممتازة ونتائج قوية"<br><b>أحمد</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"زادت المبيعات بشكل واضح"<br><b>سارة</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"فريق احترافي جدًا"<br><b>محمد</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"أفضل تجربة تسويق"<br><b>منى</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"نتائج سريعة ومبهرة"<br><b>كريم</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"خدمة ممتازة ومتابعة"<br><b>نور</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"زيادة واضحة في العملاء"<br><b>علي</b></div>
+<div class="card">⭐ ⭐ ⭐ ⭐ ⭐<br>"تحسن رهيب في المبيعات"<br><b>دينا</b></div>
 </div>
 </div>
 </section><section class="contact">
@@ -121,19 +95,31 @@ fetch('https://api.countapi.xyz/hit/tager-agency/main')
 <button type="submit">إرسال واتساب</button>
 </form>
 </section><footer>© شركة التاجر</footer><script>
+// WhatsApp form
 const form=document.querySelector("form");
 form.addEventListener("submit",e=>{
 e.preventDefault();
-let name=name=document.getElementById("name").value;
+let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let service=document.getElementById("service").value;
 let message=document.getElementById("message").value;
 
 let text=`شركة التاجر%0Aالاسم:${name}%0Aالرقم:${phone}%0Aالنشاط:${service}%0Aالطلب:${message}`;
-
 window.open(`https://wa.me/201024941083?text=${text}`);
 });
 
+// Animated visitor counter (premium look)
+let visits = 12480;
+let target = 12480 + 320;
+
+let counter = setInterval(() => {
+  visits++;
+  document.getElementById("visits").innerText = visits.toLocaleString();
+
+  if (visits >= target) clearInterval(counter);
+}, 30);
+
+// Animations
 gsap.utils.toArray('.card').forEach(c=>{
 gsap.to(c,{scrollTrigger:{trigger:c,start:'top 85%'},opacity:1,y:0,duration:1});
 });
