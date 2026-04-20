@@ -50,6 +50,18 @@ width:100%;padding:12px;margin:10px 0;border:none;border-radius:8px
 padding:12px 30px;border:none;border-radius:25px;background:#25d366;color:#fff;cursor:pointer;font-weight:600
 }
 
+.testimonial-slider{overflow:hidden;position:relative}
+.testimonial-track{display:flex;gap:20px;width:max-content;animation:slideTestimonials 18s linear infinite}
+.testimonial-slider:hover .testimonial-track,
+.testimonial-slider:active .testimonial-track{
+animation-play-state:paused;
+}
+.testimonial-slider .card{min-width:320px;opacity:1;transform:none}
+@keyframes slideTestimonials{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
 footer{text-align:center;padding:40px;background:#000;opacity:.7}
 </style></head>
 <body><nav>
@@ -71,9 +83,9 @@ footer{text-align:center;padding:40px;background:#000;opacity:.7}
 <p style="text-align:center;max-width:800px;margin:auto;opacity:.8">
 شركة التاجر تقدم حلول تسويقية متكاملة لزيادة العملاء والمبيعات عبر الإنترنت.
 </p><div class="grid" style="margin-top:50px">
-<div class="card" style="text-align:center"><h2>+10</h2><p>سنوات خبرة</p></div>
-<div class="card" style="text-align:center"><h2>+500</h2><p>عميل</p></div>
-<div class="card" style="text-align:center"><h2>+1200</h2><p>حملة</p></div>
+<div class="card" style="text-align:center"><h2 class="counter" data-target="10">0</h2><p>سنوات خبرة</p></div>
+<div class="card" style="text-align:center"><h2 class="counter" data-target="500">0</h2><p>عميل</p></div>
+<div class="card" style="text-align:center"><h2 class="counter" data-target="1200">0</h2><p>حملة</p></div>
 </div><div class="title" style="margin-top:80px">لماذا نحن</div>
 <div class="grid">
 <div class="card">🚀 نتائج مضمونة</div>
@@ -88,6 +100,27 @@ footer{text-align:center;padding:40px;background:#000;opacity:.7}
 <div class="card">🎨 تصميم</div>
 <div class="card">📱 تسويق رقمي</div>
 </div>
+</section><section>
+<div class="title">آراء العملاء</div>
+<div class="testimonial-slider">
+  <div class="testimonial-track">
+    <div class="card" style="text-align:center">
+      <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <p>"التعامل كان راقٍ جدًا والحملة جابت نتائج أسرع من المتوقع."</p>
+      <strong>أحمد</strong>
+    </div>
+    <div class="card" style="text-align:center">
+      <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <p>"التصميم والإعلانات ساعدونا نوصل لعملاء جدد بشكل واضح."</p>
+      <strong>سارة</strong>
+    </div>
+    <div class="card" style="text-align:center">
+      <p>⭐ ⭐ ⭐ ⭐ ⭐</p>
+      <p>"شركة محترفة والرد سريع جدًا والتنفيذ ممتاز."</p>
+      <strong>محمد</strong>
+    </div>
+  </div>
+</div>
 </section><section class="contact">
 <h2>تواصل معنا عبر واتساب</h2><form id="contactForm">
 <input type="text" id="name" placeholder="الاسم" required>
@@ -97,6 +130,11 @@ footer{text-align:center;padding:40px;background:#000;opacity:.7}
 <option value="محل">محل تجاري</option>
 <option value="عيادة">عيادة / مركز طبي</option>
 <option value="شركة">شركة / مؤسسة</option>
+</select><select id="budget" required>
+<option value="">الميزانية المتوقعة</option>
+<option value="أقل من 5000">أقل من 5000</option>
+<option value="من 5000 إلى 10000">من 5000 إلى 10000</option>
+<option value="أكثر من 10000">أكثر من 10000</option>
 </select><textarea id="message" placeholder="رسالتك" required></textarea><button type="submit">إرسال عبر واتساب</button>
 
 </form>
@@ -109,7 +147,19 @@ form.addEventListener('submit',function(e){
   const name=document.getElementById('name').value;
   const phone=document.getElementById('phone').value;
   const service=document.getElementById('service').value;
+  const budget=document.getElementById('budget').value;
   const message=document.getElementById('message').value;
+
+  let offer='';
+  if(service==='مطعم'){
+    offer='زيادة طلبات الدليفري وجذب عملاء قريبين من منطقتك';
+  }else if(service==='محل'){
+    offer='زيادة الزيارات والمبيعات داخل المحل وعبر الإنترنت';
+  }else if(service==='عيادة'){
+    offer='جذب حجوزات جديدة وبناء ثقة أقوى للمرضى';
+  }else{
+    offer='خطة تسويق احترافية لزيادة العملاء والمبيعات';
+  }
 
   const text=
   `🔥 شركة التاجر للدعاية والإعلان%0A`+
@@ -117,8 +167,10 @@ form.addEventListener('submit',function(e){
   `👤 الاسم: ${name}%0A`+
   `📞 الرقم: ${phone}%0A`+
   `🏷️ نوع النشاط: ${service}%0A`+
+  `💰 الميزانية: ${budget}%0A`+
   `📝 الطلب: ${message}%0A%0A`+
-  `💼 أحتاج عرض تسويق مناسب لمشروعي%0A`+
+  `💡 الهدف المقترح: ${offer}%0A`+
+  `📈 أرغب في معرفة أفضل خطة مناسبة لنشاطي%0A`+
   `⚡ برجاء الرد السريع مع تفاصيل الباقات`;
 
   window.open(`https://wa.me/201024941083?text=${text}`,'_blank');
@@ -126,6 +178,19 @@ form.addEventListener('submit',function(e){
 
 gsap.utils.toArray('.card').forEach(card=>{
   gsap.to(card,{scrollTrigger:{trigger:card,start:'top 85%'},opacity:1,y:0,duration:1});
+});
+
+gsap.utils.toArray('.counter').forEach(counter=>{
+  gsap.to(counter,{
+    innerText: counter.dataset.target,
+    duration: 2,
+    snap: { innerText: 1 },
+    scrollTrigger:{trigger:counter,start:'top 90%'},
+    onUpdate:function(){
+      counter.innerText='+' + Math.floor(counter.innerText);
+    }
+  });
+});
 });
 </script></body>
 </html>
