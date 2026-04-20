@@ -2,11 +2,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شركة التاجر للدعاية والإعلان</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet"><style>
+<title>التاجر للدعاية والإعلان</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet"><style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
 body{background:#0a0a0a;color:#fff;overflow-x:hidden}
 
-/* Apple-style blurred nav */
 nav{
 position:fixed;top:0;width:100%;display:flex;justify-content:space-between;align-items:center;
 padding:18px 10%;
@@ -15,10 +14,9 @@ backdrop-filter:blur(20px);
 border-bottom:1px solid rgba(255,255,255,0.08);
 z-index:1000
 }
-nav h2{font-weight:700;letter-spacing:1px}
+nav h2{font-weight:800;letter-spacing:1px}
 nav ul{display:flex;gap:20px;list-style:none;font-size:14px;opacity:.8}
 
-/* HERO Apple style */
 .hero{
 height:100vh;
 display:flex;
@@ -48,9 +46,8 @@ transition:.3s
 .btn:hover{transform:scale(1.05)}
 
 section{padding:100px 10%}
-.title{text-align:center;font-size:40px;margin-bottom:50px;font-weight:700}
+.title{text-align:center;font-size:40px;margin-bottom:50px;font-weight:800}
 
-/* Apple cards */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -64,24 +61,23 @@ padding:30px;
 backdrop-filter:blur(15px);
 transition:.4s;
 }
-.card:hover{
-transform:translateY(-8px);
-background:rgba(255,255,255,0.08)
+.card:hover{transform:translateY(-6px);background:rgba(255,255,255,0.08)}
+
+.about p{
+line-height:2;
+opacity:.85;
+font-size:16px
 }
 
-/* Stats Apple style */
 .stats .card{text-align:center}
 .stats h2{font-size:40px;font-weight:800}
 
-/* Testimonials clean */
 .testimonials{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px
 }
-.testimonials .card{font-size:14px;line-height:1.6}
 
-/* Contact */
 .contact{background:#111}
 input,textarea,select{
 width:100%;padding:14px;margin:10px 0;
@@ -97,13 +93,13 @@ color:#fff;
 font-weight:600;
 cursor:pointer
 }
-
 footer{text-align:center;padding:40px;opacity:.5}
 </style></head>
 <body><nav>
-<h2>التاجر</h2>
+<h2>التاجر للدعاية والإعلان</h2>
 <ul>
 <li>الرئيسية</li>
+<li>من نحن</li>
 <li>الخدمات</li>
 <li>الإحصائيات</li>
 <li>الآراء</li>
@@ -111,15 +107,24 @@ footer{text-align:center;padding:40px;opacity:.5}
 </ul>
 </nav><div class="hero">
 <div>
-<h1>نحوّل مشروعك إلى علامة قوية</h1>
-<p>تجربة تسويق على مستوى الشركات العالمية</p>
+<h1>التاجر للدعاية والإعلان</h1>
+<p>نحوّل الأفكار إلى حملات تسويقية ناجحة تحقق نتائج حقيقية</p>
 <button class="btn">ابدأ الآن</button>
 </div>
-</div><section>
+</div><section class="about">
+<div class="title">من نحن</div>
+<p>
+شركة التاجر للدعاية والإعلان هي شركة متخصصة في التسويق الرقمي والإعلانات الممولة وتصميم الهويات البصرية.
+نساعد العلامات التجارية على النمو والوصول إلى عملاء حقيقيين من خلال استراتيجيات تسويق حديثة تعتمد على التحليل والدقة.نحن لا نقدم مجرد خدمة، بل نبني هوية كاملة للبراند ونحول الفكرة إلى مشروع ناجح في السوق. فريقنا يضم خبراء في التسويق، التصميم، وإدارة الحملات الإعلانية لضمان أفضل النتائج الممكنة.
+
+هدفنا هو تحقيق نمو حقيقي ومستدام لعملائنا وليس مجرد ظهور مؤقت.
+
+</p>
+</section><section>
 <div class="title">خدماتنا</div>
 <div class="grid">
 <div class="card">📢 إعلانات ممولة</div>
-<div class="card">🎨 تصميم هوية احترافي</div>
+<div class="card">🎨 تصميم هوية احترافية</div>
 <div class="card">📱 تسويق رقمي متقدم</div>
 </div>
 </section><section class="stats">
@@ -130,60 +135,62 @@ footer{text-align:center;padding:40px;opacity:.5}
 <div class="card"><h2 class="counter" data-target="1200">0</h2><p>حملة</p></div>
 <div class="card"><h2 class="counter" data-target="12480">0</h2><p>زيارات</p></div>
 </div>
-</section><script>
-const counters = document.querySelectorAll('.counter');
-
-const animateCounter = (counter) => {
-  const target = +counter.getAttribute('data-target');
-  let count = 0;
-  const speed = target / 80;
-
-  const update = () => {
-    count += speed;
-    if(count < target){
-      counter.innerText = Math.floor(count).toLocaleString();
-      requestAnimationFrame(update);
-    } else {
-      counter.innerText = target.toLocaleString();
-    }
-  };
-
-  update();
-};
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      animateCounter(entry.target);
-      observer.unobserve(entry.target);
-    }
-  });
-}, {threshold: 0.5});
-
-counters.forEach(c => observer.observe(c));
-</script><section>
+</section><section>
 <div class="title">آراء العملاء</div>
 <div class="testimonials">
-<div class="card">⭐⭐⭐⭐⭐<br>نتائج ممتازة وخدمة قوية<br><b>أحمد</b></div>
-<div class="card">⭐⭐⭐⭐⭐<br>زادت مبيعاتي بشكل واضح<br><b>سارة</b></div>
-<div class="card">⭐⭐⭐⭐⭐<br>شركة احترافية جدًا<br><b>محمد</b></div>
-<div class="card">⭐⭐⭐⭐⭐<br>أفضل تجربة تسويق<br><b>منى</b></div>
-<div class="card">⭐⭐⭐⭐⭐<br>نتائج سريعة جدًا<br><b>كريم</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>خدمة ممتازة ونتائج قوية<br><b>أحمد</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>زادت المبيعات بشكل واضح جدًا<br><b>سارة</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>فريق احترافي وسريع في التنفيذ<br><b>محمد</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>أفضل تجربة تسويق تعاملت معها<br><b>منى</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>نتائج سريعة ومبهرة فعلاً<br><b>كريم</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>متابعة ممتازة ودعم مستمر<br><b>نور</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>حملات إعلانية جابت عملاء حقيقيين<br><b>أحمد علي</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>تحسن كبير في المبيعات خلال أيام<br><b>دينا</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>شغل احترافي جدًا وأنصح بهم<br><b>يوسف</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>فهموا المشروع من أول مرة<br><b>هبة</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>نتائج فوق المتوقع تمامًا<br><b>خالد</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>أفضل شركة تعاملت معها في التسويق<br><b>فرح</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>خدمة سريعة ونتائج واضحة<br><b>عمر</b></div>
+<div class="card">⭐⭐⭐⭐⭐<br>رفعوا البراند لمستوى أقوى<br><b>ليلى</b></div>
 </div>
 </section><section class="contact">
 <div class="title">تواصل معنا</div>
 <form>
 <input placeholder="الاسم">
 <input placeholder="رقم الهاتف">
-<select>
-<option>نوع النشاط</option>
-<option>مطعم</option>
-<option>محل</option>
-<option>عيادة</option>
-<option>شركة</option>
-</select>
 <textarea placeholder="رسالتك"></textarea>
 <button>إرسال واتساب</button>
 </form>
-</section><footer>© شركة التاجر</footer></body>
+</section><footer>© التاجر للدعاية والإعلان</footer><script>
+// counters
+const counters=document.querySelectorAll('.counter');
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){
+let el=e.target;
+let target=+el.dataset.target;
+let count=0;
+let step=target/80;
+let t=setInterval(()=>{
+count+=step;
+if(count>=target){count=target;clearInterval(t)}
+el.innerText=Math.floor(count).toLocaleString();
+},20);
+obs.unobserve(el);
+}
+});
+},{threshold:0.5});
+counters.forEach(c=>obs.observe(c));
+
+// whatsapp
+const form=document.querySelector("form");
+form.addEventListener("submit",e=>{
+e.preventDefault();
+let name=form.querySelectorAll("input")[0].value;
+let phone=form.querySelectorAll("input")[1].value;
+let msg=form.querySelector("textarea").value;
+let text=`التاجر للدعاية والإعلان%0Aالاسم:${name}%0Aالرقم:${phone}%0Aالرسالة:${msg}`;
+window.open(`https://wa.me/201024941083?text=${text}`);
+});
+</script></body>
 </html>
